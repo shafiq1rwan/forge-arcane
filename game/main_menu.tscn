@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhi7yc6fu22ry"]
+[gd_scene load_steps=4 format=3 uid="uid://bhi7yc6fu22ry"]
 
+[ext_resource type="Script" path="res://game/main_menu.gd" id="1_dq5kk"]
 [ext_resource type="Texture2D" uid="uid://tlifv2f5ngvm" path="res://assets/splash/made-with-godot-light.png" id="1_voplc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gtsta"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dq5kk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -94,3 +96,6 @@ text = "Version 1.0.0"
 position = Vector2(72, 608)
 scale = Vector2(2, 2)
 texture = ExtResource("1_voplc")
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]

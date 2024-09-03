@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2emxeg0wurnp"]
+
+[ext_resource type="Texture2D" uid="uid://2u80gy6s527c" path="res://assets/temporary/BlueBat/SpriteSheet.png" id="1_joe0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwrbn"]
+atlas = ExtResource("1_joe0w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d64h"]
+atlas = ExtResource("1_joe0w")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj6n4"]
+atlas = ExtResource("1_joe0w")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w457m"]
+atlas = ExtResource("1_joe0w")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2a6d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwrbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj6n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w457m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw5wu"]
+radius = 5.0
+
+[node name="BlueBat" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2a6d2")
+autoplay = "default"
+frame_progress = 0.192739
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nw5wu")

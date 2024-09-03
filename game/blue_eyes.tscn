@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct3p1e5ybohxp"]
+
+[ext_resource type="Texture2D" uid="uid://dxfwchfsuriga" path="res://assets/temporary/Eye/Eye.png" id="1_gqkgs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppdbt"]
+atlas = ExtResource("1_gqkgs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8b1"]
+atlas = ExtResource("1_gqkgs")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0u5"]
+atlas = ExtResource("1_gqkgs")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvl47"]
+atlas = ExtResource("1_gqkgs")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdwe8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppdbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no8b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvl47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v1fkk"]
+radius = 6.08276
+
+[node name="BlueEyes" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vdwe8")
+autoplay = "default"
+frame_progress = 0.157467
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v1fkk")

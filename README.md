@@ -1,2 +1,2 @@
-# forge-arcane
-For One Game A Month Jam
+# Forge of the Arcane
+Focuses on the creation and discovery of arcane powers within ancient ruins.

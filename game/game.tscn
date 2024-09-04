@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dp7iqs2ptshyr"]
+[gd_scene load_steps=7 format=4 uid="uid://dp7iqs2ptshyr"]
 
 [ext_resource type="PackedScene" uid="uid://ccirn7a34lvsm" path="res://game/player.tscn" id="1_x7ks8"]
 [ext_resource type="Texture2D" uid="uid://bgj4cifecuoir" path="res://assets/temporary/Tileset/TilesetRelief.png" id="2_s4v7x"]
+[ext_resource type="PackedScene" uid="uid://b2emxeg0wurnp" path="res://game/blue_bat.tscn" id="3_cpho4"]
+[ext_resource type="PackedScene" uid="uid://ct3p1e5ybohxp" path="res://game/blue_eyes.tscn" id="4_q26rl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5b8j"]
 texture = ExtResource("2_s4v7x")
@@ -115,3 +117,21 @@ tile_set = SubResource("TileSet_okpb0")
 
 [node name="Player" parent="." instance=ExtResource("1_x7ks8")]
 position = Vector2(576, 336)
+
+[node name="BlueBat" parent="." instance=ExtResource("3_cpho4")]
+position = Vector2(696, 272)
+
+[node name="BlueBat2" parent="." instance=ExtResource("3_cpho4")]
+position = Vector2(376, 264)
+
+[node name="BlueBat3" parent="." instance=ExtResource("3_cpho4")]
+position = Vector2(704, 440)
+
+[node name="BlueEyes" parent="." instance=ExtResource("4_q26rl")]
+position = Vector2(512, 232)
+
+[node name="BlueEyes2" parent="." instance=ExtResource("4_q26rl")]
+position = Vector2(440, 440)
+
+[node name="BlueEyes3" parent="." instance=ExtResource("4_q26rl")]
+position = Vector2(824, 344)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct3p1e5ybohxp"]
+[gd_scene load_steps=9 format=3 uid="uid://ct3p1e5ybohxp"]
 
+[ext_resource type="Script" path="res://game/blue_eyes.gd" id="1_3xfmk"]
 [ext_resource type="Texture2D" uid="uid://dxfwchfsuriga" path="res://assets/temporary/Enemies/Eye/Eye.png" id="1_gqkgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppdbt"]
@@ -42,11 +43,12 @@ animations = [{
 radius = 6.08276
 
 [node name="BlueEyes" type="CharacterBody2D"]
+script = ExtResource("1_3xfmk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vdwe8")
 autoplay = "default"
-frame_progress = 0.157467
+frame_progress = 0.984468
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v1fkk")

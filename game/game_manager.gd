@@ -1,6 +1,8 @@
 extends Node
 
 var PLAYER_HP = 100
-var BLUEBAT_HP = 5
-var BLUEEYE_HP = 3
 var PLAYER_SPEED = 100
+var BLUEBAT_HP = 5
+var BLUEBAT_SPEED = 2000
+var BLUEEYE_HP = 3
+var BLUEEYE_SPEED = 3000

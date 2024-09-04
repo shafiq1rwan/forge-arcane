@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/main_menu.gd" id="1_dq5kk"]
 [ext_resource type="Texture2D" uid="uid://tlifv2f5ngvm" path="res://assets/splash/made-with-godot-light.png" id="1_voplc"]
-[ext_resource type="AudioStream" uid="uid://ccj7fo6nuuc1s" path="res://assets/bgm/main-menu-bgm.wav" id="3_8yxxl"]
+[ext_resource type="AudioStream" uid="uid://6b6lpcen76wv" path="res://assets/bgm/main-menu-bgm-v2.wav" id="3_fa8gq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gtsta"]
 font_size = 60
@@ -100,7 +100,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_voplc")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8yxxl")
+stream = ExtResource("3_fa8gq")
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

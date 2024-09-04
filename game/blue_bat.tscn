@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2emxeg0wurnp"]
 
-[ext_resource type="Texture2D" uid="uid://2u80gy6s527c" path="res://assets/temporary/BlueBat/SpriteSheet.png" id="1_joe0w"]
+[ext_resource type="Texture2D" uid="uid://2u80gy6s527c" path="res://assets/temporary/Enemies/BlueBat/SpriteSheet.png" id="1_joe0w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwrbn"]
 atlas = ExtResource("1_joe0w")
@@ -42,11 +42,14 @@ animations = [{
 radius = 5.0
 
 [node name="BlueBat" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2a6d2")
 autoplay = "default"
-frame_progress = 0.192739
+frame = 2
+frame_progress = 0.363555
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nw5wu")

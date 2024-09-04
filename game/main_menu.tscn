@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhi7yc6fu22ry"]
+[gd_scene load_steps=5 format=3 uid="uid://bhi7yc6fu22ry"]
 
 [ext_resource type="Script" path="res://game/main_menu.gd" id="1_dq5kk"]
 [ext_resource type="Texture2D" uid="uid://tlifv2f5ngvm" path="res://assets/splash/made-with-godot-light.png" id="1_voplc"]
+[ext_resource type="AudioStream" uid="uid://ccj7fo6nuuc1s" path="res://assets/bgm/main-menu-bgm.wav" id="3_8yxxl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gtsta"]
 font_size = 60
@@ -64,6 +65,7 @@ theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -92,10 +94,15 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Version 1.0.0"
 
-[node name="Made-with-godot-light" type="Sprite2D" parent="."]
+[node name="Made-with-godot-light" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(72, 608)
 scale = Vector2(2, 2)
 texture = ExtResource("1_voplc")
 
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8yxxl")
+autoplay = true
+
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="BGM" to="." method="_on_bgm_finished"]

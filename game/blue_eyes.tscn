@@ -43,6 +43,8 @@ animations = [{
 radius = 6.08276
 
 [node name="BlueEyes" type="CharacterBody2D"]
+slide_on_ceiling = false
+platform_on_leave = 2
 script = ExtResource("1_3xfmk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

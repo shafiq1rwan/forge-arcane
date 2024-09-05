@@ -21,6 +21,7 @@ boot_splash/minimum_display_time=800
 [autoload]
 
 GameManager="*res://game/game_manager.gd"
+ScreenTransition="*res://game/screen_transition.tscn"
 
 [display]
 

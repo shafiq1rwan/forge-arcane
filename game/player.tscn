@@ -112,6 +112,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword/HitBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bs4cx"]
 resource_name = "slash"
@@ -152,6 +164,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword/HitBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_07qkk"]
 _data = {
@@ -162,6 +186,7 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
+slide_on_ceiling = false
 script = ExtResource("1_vv7hb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -175,7 +200,7 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_46q64")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 
 [node name="Sword" type="Node2D" parent="."]
 
@@ -193,6 +218,7 @@ hframes = 4
 frame = 3
 
 [node name="HitBox" type="Area2D" parent="Sword"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/HitBox"]
 position = Vector2(0, -12)
@@ -203,3 +229,5 @@ shape = SubResource("CapsuleShape2D_jg4ie")
 libraries = {
 "": SubResource("AnimationLibrary_07qkk")
 }
+
+[connection signal="body_entered" from="Sword/HitBox" to="." method="_on_hit_box_body_entered"]

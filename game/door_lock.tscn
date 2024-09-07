@@ -1,12 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d350tjayfnwnl"]
+[gd_scene load_steps=6 format=3 uid="uid://d350tjayfnwnl"]
 
 [ext_resource type="Texture2D" uid="uid://dq7ximl33howb" path="res://assets/temporary/Tileset/TilesetDungeon.png" id="1_ujlfa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn088"]
-atlas = ExtResource("1_ujlfa")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8q4n"]
 atlas = ExtResource("1_ujlfa")
 region = Rect2(32, 16, 16, 16)
 
@@ -26,9 +22,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x8q4n")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_eo34r")
 }],
 "loop": true,
@@ -41,9 +34,11 @@ size = Vector2(14, 11)
 
 [node name="DoorLock" type="StaticBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q474m")
+animation = &"open"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DoorCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_i1e3u")
+disabled = true

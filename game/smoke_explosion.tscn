@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnv14v18ox6ok"]
+[gd_scene load_steps=7 format=3 uid="uid://bnv14v18ox6ok"]
 
 [ext_resource type="Texture2D" uid="uid://cede7aeww13u3" path="res://assets/fx/Smoke/SpriteSheet.png" id="1_13hpp"]
 [ext_resource type="Script" path="res://game/smoke_explosion.gd" id="1_kp70a"]
+[ext_resource type="AudioStream" uid="uid://cprfx57p8eudm" path="res://assets/sfx/MiniImpact.wav" id="3_a2t6x"]
 
 [sub_resource type="Animation" id="Animation_2h7wf"]
 length = 0.001
@@ -52,5 +53,8 @@ libraries = {
 "": SubResource("AnimationLibrary_h7w25")
 }
 autoplay = "explode"
+
+[node name="ExplodeSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a2t6x")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1970,8 +1970,11 @@ curve = SubResource("Curve2D_ml6f6")
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnPoint"]
 position = Vector2(464, 320)
 
-[node name="DoorLock" parent="." instance=ExtResource("9_ubne0")]
+[node name="DoorBack" parent="." instance=ExtResource("9_ubne0")]
 position = Vector2(488, 264)
+
+[node name="DoorFront" parent="." instance=ExtResource("9_ubne0")]
+position = Vector2(664, 507)
 
 [node name="RoomDetector" type="Area2D" parent="."]
 
@@ -1982,5 +1985,52 @@ shape = SubResource("RectangleShape2D_boddn")
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.556863)
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -25.0
+offset_right = 104.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="Label" type="Label" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -115.0
+offset_right = 105.5
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Paused"
+
+[node name="BossSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(608, 392)
+
 [connection signal="body_entered" from="RoomDetector" to="." method="_on_room_detector_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+
+[editable path="DoorFront"]

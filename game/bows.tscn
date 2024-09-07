@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj51yksiohqx"]
+[gd_scene load_steps=5 format=3 uid="uid://bj51yksiohqx"]
 
 [ext_resource type="Script" path="res://game/bows.gd" id="1_2yulb"]
 [ext_resource type="Texture2D" uid="uid://dlef2quv24bhs" path="res://assets/temporary/Bow2/Sprite.png" id="1_lx6do"]
+[ext_resource type="AudioStream" uid="uid://3euohkfema8d" path="res://assets/sfx/Hit3.wav" id="3_ywsoa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5nvk"]
 radius = 41.0488
@@ -18,3 +19,12 @@ shape = SubResource("CircleShape2D_j5nvk")
 position = Vector2(9, 0)
 rotation = -1.5708
 texture = ExtResource("1_lx6do")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ywsoa")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

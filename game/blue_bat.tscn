@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2emxeg0wurnp"]
+[gd_scene load_steps=11 format=3 uid="uid://b2emxeg0wurnp"]
 
 [ext_resource type="Script" path="res://game/blue_bat.gd" id="1_2otb2"]
 [ext_resource type="Texture2D" uid="uid://2u80gy6s527c" path="res://assets/temporary/Enemies/BlueBat/SpriteSheet.png" id="1_joe0w"]
@@ -42,6 +42,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw5wu"]
 radius = 5.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3fao"]
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsypr"]
+bg_color = Color(1, 0.296845, 0.520807, 1)
+
 [node name="BlueBat" type="CharacterBody2D"]
 slide_on_ceiling = false
 platform_on_leave = 2
@@ -55,3 +64,14 @@ frame_progress = 0.363555
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nw5wu")
+
+[node name="BlueBatHP" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x3fao")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nsypr")
+max_value = 3.0
+value = 3.0
+show_percentage = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct3p1e5ybohxp"]
+[gd_scene load_steps=11 format=3 uid="uid://ct3p1e5ybohxp"]
 
 [ext_resource type="Script" path="res://game/blue_eyes.gd" id="1_3xfmk"]
 [ext_resource type="Texture2D" uid="uid://dxfwchfsuriga" path="res://assets/temporary/Enemies/Eye/Eye.png" id="1_gqkgs"]
@@ -42,6 +42,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v1fkk"]
 radius = 6.08276
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp3pn"]
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlruy"]
+bg_color = Color(1, 0.296845, 0.520807, 1)
+
 [node name="BlueEyes" type="CharacterBody2D"]
 slide_on_ceiling = false
 platform_on_leave = 2
@@ -54,3 +63,14 @@ frame_progress = 0.984468
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v1fkk")
+
+[node name="BlueEyeHP" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xp3pn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vlruy")
+max_value = 3.0
+value = 3.0
+show_percentage = false

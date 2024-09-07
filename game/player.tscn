@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ccirn7a34lvsm"]
+[gd_scene load_steps=49 format=3 uid="uid://ccirn7a34lvsm"]
 
 [ext_resource type="Script" path="res://game/player.gd" id="1_vv7hb"]
 [ext_resource type="Texture2D" uid="uid://b8bwuwyhd8a58" path="res://assets/player/Death.png" id="2_dkf2k"]
@@ -309,6 +309,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_46q64"]
 radius = 4.12311
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfxqu"]
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1madx"]
+bg_color = Color(0.933247, 0.402512, 0.453231, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 5
 slide_on_ceiling = false
@@ -329,3 +342,31 @@ shape = SubResource("CircleShape2D_46q64")
 zoom = Vector2(3, 3)
 
 [node name="Bows" parent="." instance=ExtResource("6_y0co6")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="BackgroundClr" type="ColorRect" parent="HUD"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 52.0
+color = Color(0.195012, 0.681924, 0.626099, 1)
+
+[node name="LabelHP" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 31.0
+text = "HP
+"
+
+[node name="PlayerHP" type="ProgressBar" parent="HUD"]
+offset_left = 18.0
+offset_top = 32.0
+offset_right = 127.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vfxqu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1madx")
+max_value = 5.0
+value = 5.0
+show_percentage = false

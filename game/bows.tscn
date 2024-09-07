@@ -15,10 +15,6 @@ shape = SubResource("CircleShape2D_j5nvk")
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
-position = Vector2(15, 0)
+position = Vector2(9, 0)
 rotation = -1.5708
 texture = ExtResource("1_lx6do")
-
-[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Sprite2D"]
-unique_name_in_owner = true
-rotation = 1.5708

@@ -5,12 +5,13 @@ var damage: int = 1
 var knockback_direction: Vector2 = Vector2.ZERO
 var knockback_force: int = 300
 var direction: Vector2 = Vector2.ZERO
+@onready var player_hp: ProgressBar = $HUD/PlayerHP
 
 func _physics_process(delta: float) -> void:
-	
 	#var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	var mouse_direction: Vector2 = ((get_global_mouse_position() - global_position).normalized())
-	handle_movement(delta)	
+	handle_movement(delta)
+	
 # Function to handle movement in 4 directions
 func handle_movement(delta) -> void:
 	direction = Vector2.ZERO
@@ -30,10 +31,8 @@ func handle_movement(delta) -> void:
 	# Normalize direction for diagonal movement
 	if direction.length() > 0:
 		direction = direction.normalized()
-
 		# Play the appropriate animation based on movement direction
 		update_animation(direction)
-
 	else:
 		animated_sprite_2d.play("idle")  # Stop the animation when idle
 
@@ -70,6 +69,6 @@ func update_animation(direction):
 		elif direction.y < 0:
 			animated_sprite_2d.play("run-up")    # Up
 			
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage()
+func take_damage_player(damage):
+	GameManager.PLAYER_HP -= damage
+	player_hp.value = GameManager.PLAYER_HP

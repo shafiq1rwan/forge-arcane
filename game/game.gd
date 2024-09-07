@@ -12,11 +12,6 @@ extends Node2D
 func _ready() -> void:
 	randomize() # Ensures more random results from randi()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_room_detector_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("Player Masuk")

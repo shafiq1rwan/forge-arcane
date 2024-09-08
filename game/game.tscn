@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dp7iqs2ptshyr"]
+[gd_scene load_steps=22 format=4 uid="uid://dp7iqs2ptshyr"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_pjiv2"]
 [ext_resource type="PackedScene" uid="uid://ccirn7a34lvsm" path="res://game/player.tscn" id="1_x7ks8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cmfpkwbq7yqmh" path="res://game/trees.tscn" id="4_f3pwg"]
 [ext_resource type="Texture2D" uid="uid://ba7d6xchnqcu3" path="res://assets/temporary/Tileset/TilesetNature.png" id="4_q280k"]
 [ext_resource type="PackedScene" uid="uid://d350tjayfnwnl" path="res://game/door_lock.tscn" id="9_ubne0"]
+[ext_resource type="AudioStream" uid="uid://citykd6cf38sw" path="res://assets/bgm/main-menu-bgm-v3.wav" id="11_2vboo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smw36"]
 texture = ExtResource("2_s4v7x")
@@ -2026,11 +2027,43 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Paused"
 
+[node name="GameOverMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.556863)
+
+[node name="Label" type="Label" parent="GameOverMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -41.5
+offset_right = 163.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+
 [node name="BossSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(608, 392)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_2vboo")
+autoplay = true
 
 [connection signal="body_entered" from="RoomDetector" to="." method="_on_room_detector_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="finished" from="BGM" to="." method="_on_bgm_finished"]
 
+[editable path="Player"]
 [editable path="DoorFront"]

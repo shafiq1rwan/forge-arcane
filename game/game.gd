@@ -10,15 +10,19 @@ extends Node2D
 @onready var door_sprite: AnimatedSprite2D = $DoorFront/DoorSprite
 @onready var door_collision: CollisionShape2D = $DoorFront/DoorCollision
 @onready var pause_menu: CanvasLayer = $PauseMenu
+@onready var game_over_menu: CanvasLayer = $GameOverMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize() # Ensures more random results from randi()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pause_menu.visible = true
 		Engine.time_scale = 0
+	
+	if GameManager.PLAYER_HP <= 0 and GameManager.IS_PLAYER_DEAD:
+		game_over_menu.visible = true
 
 func _on_room_detector_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -26,7 +30,6 @@ func _on_room_detector_body_entered(body: Node2D) -> void:
 		room_detector.queue_free()
 	
 	door_sprite.play("default")
-	door_collision.disabled = false
 	
 func spawnMob():
 	# Select a random enemy from the array
@@ -47,7 +50,9 @@ func spawnMob():
 func _on_spawn_timer_timeout() -> void:
 	spawnMob()
 
-
 func _on_resume_button_pressed() -> void:
 	pause_menu.visible = false
 	Engine.time_scale = 1
+
+func _on_bgm_finished() -> void:
+	$BGM.play()

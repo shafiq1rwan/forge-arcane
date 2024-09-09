@@ -21,8 +21,9 @@ func _process(_delta: float) -> void:
 		pause_menu.visible = true
 		Engine.time_scale = 0
 	
-	if GameManager.PLAYER_HP <= 0 and GameManager.IS_PLAYER_DEAD:
+	if GameManager.PLAYER_HP <= 0:
 		game_over_menu.visible = true
+		Engine.time_scale = 0
 
 func _on_room_detector_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

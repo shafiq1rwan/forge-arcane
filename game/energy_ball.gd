@@ -3,7 +3,7 @@ extends Area2D
 @export var speed: float = 100.0
 var direction: Vector2
 var damage = 1
-
+var travelled_distance = 0
 func _ready():
 	# Set the bullet to move in the direction it is facing
 	direction = direction.normalized()

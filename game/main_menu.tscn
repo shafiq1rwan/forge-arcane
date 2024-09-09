@@ -26,7 +26,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.521472, 0.558897, 1)
 
-[node name="TitleLabel" type="Label" parent="CanvasLayer"]
+[node name="TitleLabel" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,7 +42,8 @@ grow_vertical = 2
 text = "Game Title"
 label_settings = SubResource("LabelSettings_gtsta")
 
-[node name="StartButton" type="Button" parent="CanvasLayer"]
+[node name="StartButton" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,7 +59,8 @@ theme_override_font_sizes/font_size = 30
 text = "Start
 "
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -72,8 +75,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/ColorRect"]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -88,7 +92,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="VersionLabel" type="Label" parent="CanvasLayer"]
+[node name="VersionLabel" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -102,7 +107,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Version 1.0.0"
 
-[node name="Made-with-godot-light" type="Sprite2D" parent="CanvasLayer"]
+[node name="Made-with-godot-light" type="Sprite2D" parent="CanvasLayer/ColorRect"]
 position = Vector2(72, 608)
 scale = Vector2(2, 2)
 texture = ExtResource("1_voplc")
@@ -111,6 +116,6 @@ texture = ExtResource("1_voplc")
 stream = ExtResource("3_fa8gq")
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="finished" from="BGM" to="." method="_on_bgm_finished"]

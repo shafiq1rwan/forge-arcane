@@ -6,6 +6,8 @@ var knife_speed: int = 0
 @export var damage: int = 1
 var knockback_direction: Vector2 = Vector2.ZERO
 @export var knockback_force: int = 300
+var travelled_distance = 0
+var range_travel = 800
 
 func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	position = initial_position
@@ -17,6 +19,10 @@ func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 
 func _physics_process(delta: float) -> void:
 	position += direction * knife_speed * delta
+	travelled_distance += knife_speed * delta
+	
+	if travelled_distance > range_travel:
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
